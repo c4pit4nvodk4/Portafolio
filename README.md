@@ -1,80 +1,90 @@
-# 📱 QRLibre
+🎨 Portafolio HTML
 
-**QRLibre** es una página web desarrollada en **HTML, CSS y
-JavaScript**, diseñada para generar **códigos QR de forma 100%
-gratuita**, simple y directa.
+Portafolio es una página web desarrollada 100% en HTML, CSS y JavaScript, pensada para presentar tu portafolio digital de forma limpia, elegante y profesional.
 
-👉 **Demo en vivo:** https://c4pit4nvodk4.github.io/QRLibre/
+Está especialmente orientada a diseñadores gráficos, diseñadores web y desarrolladores que buscan una presencia online simple, clara y efectiva.
 
-------------------------------------------------------------------------
+👉 Demo personal:
+https://c4pit4nvodk4.github.io/Portafolio/
 
-## 🚀 Características principales
+🚀 Características principales
 
--   ✅ Generación de QR **totalmente gratuita**
--   🚫 **Sin registros**
--   🚫 **Sin pagos**
--   🚫 **Sin suscripciones**
--   🚫 **Sin anuncios ni comerciales**
--   🔓 **Código abierto y modificable**
--   ⚡ Rápido, simple y ligero
--   🌐 Funciona directamente desde el navegador
+✅ 100% HTML, CSS y JavaScript
 
-------------------------------------------------------------------------
+🎨 Diseño limpio, moderno y profesional
 
-## 🎯 Objetivo del proyecto
+🌙 Estética elegante (ideal para Dark Mode)
 
-El objetivo de **QRLibre** es ofrecer una herramienta accesible para
-cualquier persona o negocio que necesite crear códigos QR sin barreras,
-sin letras chicas y sin costos ocultos.
+🚀 Carga rápida y estructura liviana
 
-Ideal para: - Restaurantes - Emprendedores - Eventos - Redes sociales -
-Menús digitales - Uso personal o comercial
+🔓 Totalmente modificable
 
-------------------------------------------------------------------------
+🌐 Optimizado para GitHub Pages
 
-## 🛠️ Tecnologías utilizadas
+📱 Diseño responsive (adaptable a todos los dispositivos)
 
--   HTML5\
--   CSS3\
--   JavaScript
+🎯 Objetivo del proyecto
 
-No utiliza frameworks ni librerías externas pesadas.
+El objetivo de Portafolio HTML es ofrecer una base sólida y visualmente atractiva para que profesionales creativos puedan mostrar:
 
-------------------------------------------------------------------------
+Datos personales
 
-## 📂 Uso del proyecto
+Experiencia laboral
 
-1.  Ingresa al sitio:
+Habilidades en software
 
-        https://c4pit4nvodk4.github.io/QRLibre/
+Proyectos y trabajos realizados
 
-2.  Escribe el contenido que deseas convertir en QR.
+Portafolios digitales
 
-3.  Genera tu código QR.
+Cartas de recomendación
 
-4.  Descárgalo y úsalo donde quieras.
+Todo organizado en una sola página, clara y fácil de navegar.
 
-------------------------------------------------------------------------
+🛠️ Tecnologías utilizadas
 
-## 🧩 Personalización
+HTML5
 
-Puedes descargar o clonar este repositorio y modificar libremente: -
-Diseño - Colores - Textos - Funcionalidades
+CSS3
 
-Es ideal para adaptarlo a proyectos personales o comerciales.
+JavaScript
 
-------------------------------------------------------------------------
+Sin frameworks ni dependencias externas.
 
-## 📜 Licencia
+📂 Uso del proyecto
 
-Este proyecto es **libre y gratuito**.\
+Clona o descarga este repositorio.
+
+Abre el archivo index.html.
+
+Edita textos, secciones e imágenes con tus datos.
+
+Publica el proyecto en GitHub Pages o en tu hosting favorito.
+
+🧩 Personalización
+
+Puedes modificar libremente:
+
+Colores y tipografías
+
+Secciones del portafolio
+
+Estructura del contenido
+
+Iconos e imágenes
+
+Animaciones y efectos
+
+Ideal para adaptarlo a tu estilo personal o marca profesional.
+
+📜 Licencia
+
+Proyecto libre y gratuito.
 Puedes usarlo, modificarlo y distribuirlo sin restricciones.
 
-------------------------------------------------------------------------
+✨ Autor
 
-## ✨ Autor
-
-Desarrollado por **Capitan Vodka**\
+Desarrollado por Capitan Vodka
 📍 Chile
 
-Si te gusta este proyecto, ⭐ ¡no olvides darle una estrella en GitHub!
+Si este proyecto te resulta útil, ⭐ ¡apóyalo con una estrella en GitHub!
