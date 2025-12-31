@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Digital - Luis Alejandro Salas Huerta</title>
+    <!-- Información de contacto para motores de búsqueda -->
+    <meta name="contact" content="WhatsApp: +56982600659 | Email: Shuwaka@live.com">
+    <link rel="icon" href="Imagenes/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS para modo oscuro elegante */
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #FF6584;
+            --bg-color: #121212;
+            --surface-color: #1E1E1E;
+            --surface-light: #2D2D2D;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --border-color: #3A3A3A;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Barra de navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: rgba(108, 99, 255, 0.1);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 70%;
+        }
+        
+        /* Banner de contacto fijo */
+        .contact-banner {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: pulse 2s infinite;
+            transition: var(--transition);
+        }
+        
+        .contact-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.6);
+        }
+        
+        .contact-banner a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4); }
+            50% { box-shadow: 0 5px 25px rgba(108, 99, 255, 0.7); }
+            100% { box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4); }
+        }
+        
+        /* Secciones generales */
+        section {
+            padding: 6rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Sección Datos Personales */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            margin-bottom: 2.5rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid transparent;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            width: 310px;
+            height: 310px;
+            border-radius: 50%;
+            background: conic-gradient(transparent, var(--primary-color), transparent);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 3s linear infinite;
+            z-index: 1;
+        }
+        
+        .profile-image-container::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        
+        .profile-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .profile-subtitle {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+        
+        .profile-description {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+        
+        /* Sección Experiencia Laboral */
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+        
+        .experience-card {
+            background-color: var(--surface-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .experience-period {
+            background-color: var(--surface-light);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .experience-duration {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .experience-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Sección Experiencia en Software */
+        .software-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .software-card {
+            background-color: var(--surface-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .software-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        
+        .software-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .software-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .software-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* Galería de Portafolio */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Portafolios Digitales */
+        .digital-portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .digital-card {
+            background-color: var(--surface-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .digital-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .digital-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .digital-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .digital-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .digital-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .digital-link {
+            display: inline-block;
+            background-color: var(--surface-light);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .digital-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Sección Experiencia - Blog */
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background-color: var(--surface-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .blog-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 2rem;
+        }
+        
+        .blog-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .blog-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Sección Cartas de Recomendación */
+        .recommendation-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .recommendation-card {
+            background-color: var(--surface-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .recommendation-source {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .recommendation-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 1rem;
+        }
+        
+        .recommendation-link {
+            display: inline-block;
+            background-color: var(--surface-light);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .recommendation-link:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        /* Pie de página */
+        footer {
+            background-color: var(--surface-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-icon {
+            font-size: 1.2rem;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .profile-title {
+                font-size: 2.5rem;
+            }
+            
+            .profile-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .profile-description {
+                font-size: 1.5rem;
+            }
+            
+            .experience-container,
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .digital-portfolio-container,
+            .recommendation-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .software-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .nav-links {
+                gap: 0.8rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .contact-banner {
+                bottom: 10px;
+                right: 10px;
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .contact-banner a {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            section {
+                padding: 5rem 1rem 3rem;
+            }
+            
+            .profile-image {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .profile-image-container::before {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .profile-image-container::after {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .software-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-banner {
+                flex-direction: column;
+                width: auto;
+                border-radius: 20px;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <a href="#datos-personales" class="nav-brand">Portafolio Digital</a>
+        <ul class="nav-links">
+            <li><a href="#datos-personales">Datos Personales</a></li>
+            <li><a href="#experiencia-laboral">Experiencia Laboral</a></li>
+            <li><a href="#experiencia-software">Experiencia en Software</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#portafolios-digitales">Portafolios Digitales</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#cartas-recomendacion">Cartas de Recomendación</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner de contacto fijo -->
+    <div class="contact-banner">
+        <a href="https://wa.me/56982600659" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>+56982600659</span>
+        </a>
+        <a href="mailto:Shuwaka@live.com">
+            <i class="fas fa-envelope"></i>
+            <span>Shuwaka@live.com</span>
+        </a>
+    </div>
+
+    <!-- Sección Datos Personales -->
+    <section id="datos-personales" class="profile-section">
+        <div class="profile-image-container">
+            <img src="Imagen/Perfil.Png" alt="Luis Alejandro Salas Huerta" class="profile-image">
+        </div>
+        <h1 class="profile-title">Portafolio Digital</h1>
+        <h2 class="profile-subtitle">Luis Alejandro Salas Huerta</h2>
+        <p class="profile-description">Diseñador Gráfico y Web</p>
+    </section>
+
+    <!-- Sección Experiencia Laboral -->
+    <section id="experiencia-laboral">
+        <h2 class="section-title">Experiencia Laboral</h2>
+        <div class="experience-container">
+            <!-- Cada experiencia laboral -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">SuperMax Inversiones</h3>
+                    <span class="experience-period">09/10/2024 - 10/10/2025</span>
+                </div>
+                <p class="experience-duration">(1 año)</p>
+                <p class="experience-description">Diseño web, Diseño gráfico, edición de video e imagen, y trabajos en general de diseño gráfico.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">Unidad de Ejercicio y Deporte Adaptativo - Teletón</h3>
+                    <span class="experience-period">31/07/2024 - 31/12/2024</span>
+                </div>
+                <p class="experience-duration">(5 meses)</p>
+                <p class="experience-description">Creación de mapas en 3D, para videojuegos. Se creó un videojuego de realidad virtual para niños con discapacidades. El juego fue online, reuniendo gente de todo el mundo.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">Radio Magallanes</h3>
+                    <span class="experience-period">14/08/2022 - Presente</span>
+                </div>
+                <p class="experience-duration">(3 años y 5 meses)</p>
+                <p class="experience-description">Diseñador gráfico de escenarios en vivo a través de fondos en Chroma Key. También diseñador de publicidad, tanto en imágenes y video. Editor de redes sociales. Diseñador y emisor de video.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">SONN</h3>
+                    <span class="experience-period">20/03/2019 - 09/04/2019</span>
+                </div>
+                <p class="experience-duration"></p>
+                <p class="experience-description">Diseño de páginas web, remodelación gráfica de redes sociales, papelería en general, producción de fotografía y video.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">Sondajes Patagonia</h3>
+                    <span class="experience-period">09/03/2018 - 30/11/2018</span>
+                </div>
+                <p class="experience-duration">(8 meses)</p>
+                <p class="experience-description">Ventas en tienda de mascotas y además en tienda de lámparas, en cual ejercía de eléctrico para la instalación.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">Casa Cuevas</h3>
+                    <span class="experience-period">10/04/2017 - 09/10/2020</span>
+                </div>
+                <p class="experience-duration">(3 años y 6 meses)</p>
+                <p class="experience-description">Diseño de ropa deportiva, bordados y estampados, impresiones en plotter, ventas, reparación de computadoras y costura.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">Iluminarte</h3>
+                    <span class="experience-period">01/02/2013 - 24/01/2014</span>
+                </div>
+                <p class="experience-duration">(11 meses)</p>
+                <p class="experience-description">Vendedor y técnico, instalador de lámparas grandes, tanto a domicilio como en tienda.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">Isla Rieco</h3>
+                    <span class="experience-period">30/03/2012 - 30/08/2012</span>
+                </div>
+                <p class="experience-duration">(5 meses)</p>
+                <p class="experience-description">Electro mecánico, trabajo en mantención de maquinaria enfocado a la minería de carbón.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">Geomatica</h3>
+                    <span class="experience-period">01/02/2012 - 07/03/2012</span>
+                </div>
+                <p class="experience-duration">(1 mes)</p>
+                <p class="experience-description">Ayudante en topografía, se midió con GPS las canaletas de ayuda lluvia de la ciudad de Punta Arenas.</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3 class="company-name">Corporación Municipal</h3>
+                    <span class="experience-period">10/03/2011 - 20/12/2011</span>
+                </div>
+                <p class="experience-duration">(9 meses)</p>
+                <p class="experience-description">Práctica laboral, instalaciones eléctricas en colegios municipales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Experiencia en Software -->
+    <section id="experiencia-software">
+        <h2 class="section-title">Experiencia en Software</h2>
+        <div class="software-container">
+            <!-- Software items -->
+            <div class="software-card">
+                <i class="software-icon fas fa-paint-brush"></i>
+                <h3 class="software-name">Photoshop</h3>
+                <p class="software-description">Edición de imágenes, creación gráfica y diseño digital profesional.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-pen-nib"></i>
+                <h3 class="software-name">Illustrator</h3>
+                <p class="software-description">Diseño vectorial, ilustración digital y creación de logotipos.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-film"></i>
+                <h3 class="software-name">After Effects</h3>
+                <p class="software-description">Animación y efectos visuales para video y motion graphics.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-book"></i>
+                <h3 class="software-name">InDesign</h3>
+                <p class="software-description">Diseño editorial, maquetación de revistas, libros y folletos.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-video"></i>
+                <h3 class="software-name">DaVinci Resolve</h3>
+                <p class="software-description">Edición y corrección de color profesional para video.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-cut"></i>
+                <h3 class="software-name">Sony Vegas</h3>
+                <p class="software-description">Edición de video no lineal y producción multimedia.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-file-word"></i>
+                <h3 class="software-name">Word</h3>
+                <p class="software-description">Procesador de texto y creación de documentos profesionales.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-file-excel"></i>
+                <h3 class="software-name">Excel</h3>
+                <p class="software-description">Hojas de cálculo, análisis de datos y gráficos.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-file-powerpoint"></i>
+                <h3 class="software-name">PowerPoint</h3>
+                <p class="software-description">Presentaciones multimedia y diseño de diapositivas.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-broadcast-tower"></i>
+                <h3 class="software-name">OBS Studio</h3>
+                <p class="software-description">Transmisión en vivo y grabación de pantalla.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-tv"></i>
+                <h3 class="software-name">vMix</h3>
+                <p class="software-description">Producción en vivo, mezclador de video y streaming.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-file-alt"></i>
+                <h3 class="software-name">LibreOffice</h3>
+                <p class="software-description">Suite ofimática de código abierto alternativa a Microsoft Office.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fab fa-github"></i>
+                <h3 class="software-name">GitHub</h3>
+                <p class="software-description">Control de versiones y colaboración en proyectos de desarrollo.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fab fa-html5"></i>
+                <h3 class="software-name">HTML5</h3>
+                <p class="software-description">Desarrollo web front-end y estructuración de páginas.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-code"></i>
+                <h3 class="software-name">Visual Studio</h3>
+                <p class="software-description">Entorno de desarrollo integrado para programación.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-cube"></i>
+                <h3 class="software-name">Blender</h3>
+                <p class="software-description">Modelado 3D, animación, renderizado y creación de assets.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-gamepad"></i>
+                <h3 class="software-name">Unity</h3>
+                <p class="software-description">Motor de videojuegos y desarrollo de experiencias interactivas.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-ruler-combined"></i>
+                <h3 class="software-name">AutoCAD</h3>
+                <p class="software-description">Diseño asistido por computadora en 2D y 3D.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-print"></i>
+                <h3 class="software-name">Ultimaker CURA</h3>
+                <p class="software-description">Preparación de archivos para impresión 3D.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-cogs"></i>
+                <h3 class="software-name">Fusion 360</h3>
+                <p class="software-description">Diseño 3D, CAD, CAM y CAE para ingeniería y fabricación.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-desktop"></i>
+                <h3 class="software-name">Rust Desk</h3>
+                <p class="software-description">Software de acceso remoto y asistencia técnica.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fab fa-wordpress"></i>
+                <h3 class="software-name">WordPress</h3>
+                <p class="software-description">Creación y gestión de sitios web y blogs.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-server"></i>
+                <h3 class="software-name">cPanel</h3>
+                <p class="software-description">Panel de control para gestión de hosting web.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-robot"></i>
+                <h3 class="software-name">ChatGPT</h3>
+                <p class="software-description">Asistente de IA para contenido, código y automatización.</p>
+            </div>
+            
+            <div class="software-card">
+                <i class="software-icon fas fa-brain"></i>
+                <h3 class="software-name">Gemini</h3>
+                <p class="software-description">Asistente de IA para creatividad y resolución de problemas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Portafolio -->
+    <section id="portafolio">
+        <h2 class="section-title">Portafolio</h2>
+        <div class="gallery-container">
+            <!-- Galería de imágenes -->
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen1.png" alt="Proyecto 1" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Diseño Gráfico</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen2.png" alt="Proyecto 2" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Diseño Web</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen3.png" alt="Proyecto 3" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Edición de Video</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen4.png" alt="Proyecto 4" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Branding</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen5.png" alt="Proyecto 5" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Ilustración</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen6.png" alt="Proyecto 6" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Animación</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen7.png" alt="Proyecto 7" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Publicidad</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen8.png" alt="Proyecto 8" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Modelado 3D</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen9.png" alt="Proyecto 9" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Diseño Editorial</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen10.png" alt="Proyecto 10" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Redes Sociales</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen11.png" alt="Proyecto 11" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>UI/UX Design</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen12.png" alt="Proyecto 12" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Fotografía</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen13.png" alt="Proyecto 13" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Packaging</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen14.png" alt="Proyecto 14" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Infografía</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="Imagen/Portafolio/imagen15.png" alt="Proyecto 15" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p>Presentaciones</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Portafolios Digitales -->
+    <section id="portafolios-digitales">
+        <h2 class="section-title">Portafolios Digitales</h2>
+        <div class="digital-portfolio-container">
+            <!-- Proyecto 1 -->
+            <div class="digital-card">
+                <div class="digital-card-header">
+                    <h3 class="digital-title">TV Regional Magallanes</h3>
+                    <span class="digital-badge">HTML</span>
+                </div>
+                <p class="digital-description">Plataforma web desarrollada 100% en HTML, que permite acceder de forma simple y rápida a los canales de televisión pública y radios de la Región de Magallanes y la Antártica Chilena. El proyecto está pensado para facilitar el acceso a la información, entretención y transmisiones en vivo desde cualquier dispositivo.</p>
+                <a href="https://c4pit4nvodk4.github.io/TvRegionalMagallanes/" target="_blank" class="digital-link">Ver Proyecto</a>
+            </div>
+            
+            <!-- Proyecto 2 -->
+            <div class="digital-card">
+                <div class="digital-card-header">
+                    <h3 class="digital-title">La Pasadita</h3>
+                    <span class="digital-badge">HTML/JS</span>
+                </div>
+                <p class="digital-description">Programa para venta de productos de comida rápida, impresión de baucher y formulario de ventas. Menú electrónico para restaurante, perfecto para crear comandas en tiempo real junto a una impresora térmica de 80mm.</p>
+                <a href="https://c4pit4nvodk4.github.io/LaPasadita/" target="_blank" class="digital-link">Ver Proyecto</a>
+            </div>
+            
+            <!-- Proyecto 3 -->
+            <div class="digital-card">
+                <div class="digital-card-header">
+                    <h3 class="digital-title">Menú Digital</h3>
+                    <span class="digital-badge">HTML/CSS</span>
+                </div>
+                <p class="digital-description">Sistema de creación de menús digitales para restaurantes, desarrollado en HTML de código abierto, pensado para ser accedido fácilmente mediante códigos QR, sin anuncios, sin costos ocultos y sin sorpresas. Ideal para restaurantes, bares, cafeterías y food trucks que buscan una solución moderna, editable y profesional.</p>
+                <a href="https://c4pit4nvodk4.github.io/MenuDigital/" target="_blank" class="digital-link">Ver Proyecto</a>
+            </div>
+            
+            <!-- Proyecto 4 -->
+            <div class="digital-card">
+                <div class="digital-card-header">
+                    <h3 class="digital-title">Krenn Lucha Libre</h3>
+                    <span class="digital-badge">HTML/JS</span>
+                </div>
+                <p class="digital-description">Sistema de cartas coleccionables donde se canjean premios por códigos coleccionables. Proyecto basado en la colección de cartas coleccionables. La idea es tener un sistema de usuario y contraseña que derive a una recompensa.</p>
+                <a href="https://c4pit4nvodk4.github.io/KrennLuchaLibre/" target="_blank" class="digital-link">Ver Proyecto</a>
+            </div>
+            
+            <!-- Proyecto 5 -->
+            <div class="digital-card">
+                <div class="digital-card-header">
+                    <h3 class="digital-title">Scoreboard</h3>
+                    <span class="digital-badge">HTML/CSS/JS</span>
+                </div>
+                <p class="digital-description">Marcador deportivo desarrollado 100% en HTML, pensado especialmente para transmisiones en vivo mediante OBS Studio, canales deportivos y creadores de contenido. El proyecto está diseñado para ser liviano, simple y fácil de editar, incluso para usuarios con conocimientos básicos de HTML.</p>
+                <a href="https://c4pit4nvodk4.github.io/Scoreboard/" target="_blank" class="digital-link">Ver Proyecto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Experiencia -->
+    <section id="experiencia">
+        <h2 class="section-title">Experiencia Especializada</h2>
+        <div class="blog-container">
+            <!-- Experiencia 1 -->
+            <div class="blog-card">
+                <img src="Imagen/Maquinas1.png" alt="Máquina de Sublimación" class="blog-img">
+                <div class="blog-content">
+                    <h3 class="blog-title">Sublimación Profesional</h3>
+                    <p class="blog-text">Amplia experiencia en operación de máquinas de sublimación de diversos formatos, desde equipos de tamaño A4 hasta sistemas industriales de más de 100x100 cm. Especialización en estampado textil de alto rendimiento para prendas deportivas, incluyendo técnicas de full estampado. Competencia en sublimación sobre múltiples superficies como tazas personalizadas, placas conmemorativas, medallas y materiales promocionales, manteniendo siempre los más altos estándares de calidad y durabilidad.</p>
+                </div>
+            </div>
+            
+            <!-- Experiencia 2 -->
+            <div class="blog-card">
+                <img src="Imagen/Maquinas2.png" alt="Máquina de Bordado" class="blog-img">
+                <div class="blog-content">
+                    <h3 class="blog-title">Bordado Digital</h3>
+                    <p class="blog-text">Dominio en la operación de maquinaria de bordado tanto industrial como doméstica, con especial destreza en la creación y optimización de archivos digitales para bordado. Capacidad para transformar diseños complejos en instrucciones precisas para máquinas de bordado, garantizando resultados de alta calidad incluso en los proyectos más exigentes. Experiencia en la adaptación de logotipos y gráficos para bordado sobre diversos textiles, cumpliendo con los requisitos técnicos y estéticos de clientes corporativos.</p>
+                </div>
+            </div>
+            
+            <!-- Experiencia 3 -->
+            <div class="blog-card">
+                <img src="Imagen/Maquinas3.png" alt="Impresión 3D" class="blog-img">
+                <div class="blog-content">
+                    <h3 class="blog-title">Impresión 3D y Modelado</h3>
+                    <p class="blog-text">Competencia avanzada en diseño y fabricación aditiva mediante tecnologías de impresión 3D. Especialización en la creación de elementos promocionales tridimensionales, letreros corporativos con integración de iluminación LED, y componentes personalizados para diversos sectores. Capacidad para materializar conceptos abstractos en prototipos funcionales, optimizando los diseños para la manufactura mediante software especializado y controlando todo el proceso desde el modelado hasta la posproducción.</p>
+                </div>
+            </div>
+            
+            <!-- Experiencia 4 -->
+            <div class="blog-card">
+                <img src="Imagen/Maquinas4.png" alt="Plotter de Corte" class="blog-img">
+                <div class="blog-content">
+                    <h3 class="blog-title">Plotter de Corte Vinílico</h3>
+                    <p class="blog-text">Experiencia exhaustiva en la operación de plotters de corte de diversas escalas y marcas, desde equipos compactos hasta sistemas industriales Roland de alto rendimiento. Conocimiento profundo de todo el ecosistema de software relacionado, incluyendo programas de diseño vectorial y aplicaciones específicas de corte. Habilidad para transformar requerimientos de clientes en soluciones de rotulación, señalética y gráfica aplicada, optimizando materiales y procesos para garantizar resultados profesionales en cada proyecto.</p>
+                </div>
+            </div>
+            
+            <!-- Experiencia 5 -->
+            <div class="blog-card">
+                <img src="Imagen/Maquinas5.png" alt="Diseño Web y Redes" class="blog-img">
+                <div class="blog-content">
+                    <h3 class="blog-title">Gestión Digital Integral</h3>
+                    <p class="blog-text">Servicio profesional de gestión y mantenimiento de presencia digital corporativa, abarcando desde el diseño y desarrollo web hasta la administración estratégica de redes sociales. Competencia técnica para intervenir en cualquier tipo de plataforma web, independientemente de su stack tecnológico o arquitectura. Implementación de estrategias basadas en análisis de tendencias y contenidos virales para maximizar el engagement y conversión, adaptando siempre las soluciones a los objetivos comerciales específicos de cada cliente.</p>
+                </div>
+            </div>
+            
+            <!-- Experiencia 6 -->
+            <div class="blog-card">
+                <img src="Imagen/Portafolio/imagen8.png" alt="Creación de Mapas en Unity" class="blog-img">
+                <div class="blog-content">
+                    <h3 class="blog-title">Desarrollo de Entornos Virtuales</h3>
+                    <p class="blog-text">Especialización en la creación de entornos virtuales inmersivos utilizando el motor Unity, con experiencia destacada en el desarrollo de recorridos virtuales para el sector inmobiliario (casas piloto) y proyectos de impacto social. Participación clave en el desarrollo de un mapa de realidad virtual para la Teletón, diseñado específicamente para niños con movilidad reducida, permitiéndoles explorar y disfrutar de experiencias virtuales accesibles. Este proyecto destacó por su enfoque inclusivo y capacidad para conectar participantes de diversas localidades geográficas en una experiencia compartida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Cartas de Recomendación -->
+    <section id="cartas-recomendacion">
+        <h2 class="section-title">Cartas de Recomendación</h2>
+        <div class="recommendation-container">
+            <!-- Recomendación 1 -->
+            <div class="recommendation-card">
+                <h3 class="recommendation-source">Radio Magallanes</h3>
+                <p class="recommendation-text">"Luis Alejandro demostró una capacidad excepcional para adaptarse a los desafíos técnicos y creativos de nuestra emisora. Su trabajo en diseño de escenarios virtuales y producción visual elevó significativamente la calidad de nuestras transmisiones en vivo, mostrando siempre profesionalismo, creatividad y compromiso con los resultados."</p>
+                <a href="Imagenes/PDF/RadioMagallanes.pdf" target="_blank" class="recommendation-link">Ver Carta Completa (PDF)</a>
+            </div>
+            
+            <!-- Recomendación 2 -->
+            <div class="recommendation-card">
+                <h3 class="recommendation-source">Teletón - Coyhaique</h3>
+                <p class="recommendation-text">"Su contribución al proyecto de realidad virtual para niños con discapacidades fue fundamental. Luis Alejandro no solo mostró dominio técnico en la creación de entornos 3D, sino también una sensibilidad extraordinaria para diseñar experiencias inclusivas y significativas. Su trabajo trasciende lo técnico para impactar positivamente en la calidad de vida de nuestros beneficiarios."</p>
+                <a href="Imagenes/PDF/Teleton Coyhaque.pdf" target="_blank" class="recommendation-link">Ver Carta Completa (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-content">
+            <h3 class="footer-title">Página Web Creada por Luis Alejandro Salas Huerta</h3>
+            <div class="footer-contact">
+                <div class="contact-item">
+                    <i class="contact-icon fab fa-whatsapp"></i>
+                    <span>Whatsapp: +56982600659</span>
+                </div>
+                <div class="contact-item">
+                    <i class="contact-icon fas fa-envelope"></i>
+                    <span>Correo Electrónico: Shuwaka@live.com</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Efecto de desplazamiento suave para los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efecto de carga para las tarjetas
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.experience-card, .software-card, .digital-card, .blog-card, .recommendation-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Efecto para las imágenes de la galería
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.9)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            const galleryObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'scale(1)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            galleryItems.forEach(item => {
+                galleryObserver.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
